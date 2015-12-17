@@ -13,5 +13,10 @@ class StatusCodeTestCase(unittest.TestCase):
         response = self.app.get('/800');
         self.assertEqual(response.status, '404 NOT FOUND')
 
+    def test_should_return_landing_page(self):
+        response = self.app.get('/');
+        self.assertEqual(response.status, '200 OK')
+        self.assertEqual(response.data, b'Welcome to httpstatusco.de')
+
 if __name__ == '__main__':
     unittest.main()
