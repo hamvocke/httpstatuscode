@@ -2,7 +2,7 @@ import app
 import unittest
 
 class StatusCodeTestCase(unittest.TestCase):
-    def  setUp(self):
+    def setUp(self):
         self.app = app.app.test_client()
 
     def test_should_return_200_for_known_status_code(self):

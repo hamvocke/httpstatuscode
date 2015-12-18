@@ -1,4 +1,6 @@
 from flask import Flask, abort
+import model
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -7,9 +9,11 @@ def index():
 
 @app.route('/<int:statuscode>')
 def statuscode(statuscode):
-    if statuscode > 599:
+    if statuscode not in model.statuscodes:
         abort(404)
-    return 'Your statuscode is %d' % statuscode
+    code = model.statuscodes[statuscode]
+    return 'Your statuscode is %s' % code
 
 if __name__ == '__main__':
+    app.debug = True
     app.run()
