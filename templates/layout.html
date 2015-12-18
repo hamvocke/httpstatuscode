@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='normalize.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='skeleton.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+    <meta charset="utf-8">
+    <title>HTTP Statuscodes</title>
+    <meta name="description" content="Simple lookup for HTTP statuscodes">
+    <meta name="author" content="Hermann Vocke">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+  <body>
+    <div class="container">
+      {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
+      {% block body %}{% endblock %}
+    </div>
+  </body>
+</html>
