@@ -1,5 +1,14 @@
 .hero {
-  padding: 30%;
+  padding: 30% 0;
   text-align: center;
   color: #666;
+}
+
+.code {
+  font-weight: 600;
+  font-size: 5.5em;
+}
+
+.title {
+  font-size: 3.5em;
 }
