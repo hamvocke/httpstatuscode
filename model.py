@@ -42,7 +42,7 @@ statuscodes = {
     500: Statuscode(500, "Internal Server Error", ""),
     501: Statuscode(501, "Not Implemented", ""),
     502: Statuscode(502, "Bad Gateway", ""),
-    503: Statuscode(504, "Service Unavailable", ""),
+    503: Statuscode(503, "Service Unavailable", ""),
     504: Statuscode(504, "Gateway Time-out", ""),
     505: Statuscode(505, "HTTP Version not supported", ""),
 }
