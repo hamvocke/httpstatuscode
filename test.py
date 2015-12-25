@@ -9,7 +9,7 @@ class StatusCodeTestCase(unittest.TestCase):
         response = self.app.get('/404');
         self.assertEqual(response.status_code, 200)
         self.assertTrue(b"404" in response.data)
-        self.assertTrue(b"NOT FOUND" in response.data)
+        self.assertTrue(b"Not Found" in response.data)
 
     def test_should_return_404_for_unknown_status_code(self):
         response = self.app.get('/800');
