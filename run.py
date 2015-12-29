@@ -1,3 +1,3 @@
-from httpstatuscode import app
+import app
 
 app.app.run(debug=True)
