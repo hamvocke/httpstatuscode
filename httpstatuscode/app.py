@@ -1,5 +1,5 @@
 from flask import Flask, abort, render_template
-import model
+from . import model
 
 app = Flask(__name__)
 
@@ -19,5 +19,5 @@ def statuscode_not_found(error):
     return render_template('not_found.html'), 404
 
 if __name__ == '__main__':
-    app.debug = True
+    app.debug = False
     app.run()
