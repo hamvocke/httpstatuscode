@@ -19,7 +19,7 @@ class StatusCodeTestCase(unittest.TestCase):
     def test_should_return_landing_page(self):
         response = self.app.get('/');
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data, b'Welcome to httpstatusco.de')
+        self.assertTrue(b'Find out what your HTTP statuscode stands for' in response.data)
 
 if __name__ == '__main__':
     unittest.main()

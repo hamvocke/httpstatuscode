@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Welcome to httpstatusco.de'
+    return render_template('index.html')
 
 @app.route('/<int:statuscode>')
 def statuscode(statuscode):
