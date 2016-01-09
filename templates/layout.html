@@ -8,17 +8,19 @@
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 
     <meta charset="utf-8">
-    <title>HTTP Statuscodes</title>
-    <meta name="description" content="Simple lookup for HTTP statuscodes">
+    <title>HTTP Status Code</title>
+    <meta name="description" content="HTTP Status Codes">
     <meta name="author" content="Hermann Vocke">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
   </head>
   <body>
     <div class="container">
-      {% for message in get_flashed_messages() %}
-        <div class="flash">{{ message }}</div>
-      {% endfor %}
+      <div class="messages">
+        {% for message in get_flashed_messages() %}
+        <div class="message">{{ message }}</div>
+        {% endfor %}
+      </div>
       {% block body %}{% endblock %}
     </div>
   </body>
