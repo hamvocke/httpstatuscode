@@ -18,8 +18,8 @@ def statuscode(statuscode):
 def search():
     query = request.form['query']
     if not query:
-        flash('Please provide a query') # TODO: need to set an API secret key for this to work. Consider setting one using env vars, deploy that with the application
-        return render_template('index.html')
+        flash('Please enter a search term') # TODO: need to set an API secret key for this to work. Consider setting one using env vars, deploy that with the application
+        return redirect(url_for('index'))
     elif query not in model.statuscodes:
         flash("Sorry, I don't know the statuscode %s" % query)
         return redirect(url_for('index'))
