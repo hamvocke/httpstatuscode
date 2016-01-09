@@ -20,7 +20,7 @@ class StatusCodeTestCase(unittest.TestCase):
     def test_should_return_landing_page(self):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertTrue(b'Find out what your HTTP statuscode stands for' in response.data)
+        self.assertTrue(b'Find out what your HTTP status code stands for' in response.data)
 
     def test_should_redirect_to_existing_page(self):
         response = self.search_without_redirect("415")
@@ -37,7 +37,7 @@ class StatusCodeTestCase(unittest.TestCase):
     def test_should_redirect_to_index_if_searched_page_cannot_be_found(self):
         response = self.search("499")
         self.assertEqual(response.status_code, 200)
-        
+
     def search_without_redirect(self, query):
         return self.app.post('/search', data=dict(query=query), follow_redirects=False)
 
