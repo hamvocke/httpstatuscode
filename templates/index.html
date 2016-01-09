@@ -1,7 +1,20 @@
 {% extends "layout.html" %}
 {% block body %}
-<div class="hero">
-  <h1 class="code">httpstatusco.de</h1>
-  <h2 class="title">Find out what your HTTP statuscode stands for</h2>
+<div class="container">
+  <div class="hero">
+    <div class="row">
+      <h2 class="title">Find out what your HTTP statuscode stands for</h2>
+      <div class="search">
+        <form action="/search" method="post">
+          <label for="statuscodeInput">Search for your status code</label>
+          <input type="text" placeholder="e.g. 404" id="statuscodeInput" name="query" autofocus="autofocus">
+          <button class="button-primary" type="submit">Find</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
 </div>
+
 {% endblock %}
