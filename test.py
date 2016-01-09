@@ -3,6 +3,7 @@ import unittest
 
 class StatusCodeTestCase(unittest.TestCase):
     def setUp(self):
+        app.app.secret_key = 'test'
         self.app = app.app.test_client()
 
     def test_should_return_200_for_known_status_code(self):
@@ -22,18 +23,21 @@ class StatusCodeTestCase(unittest.TestCase):
         self.assertTrue(b'Find out what your HTTP statuscode stands for' in response.data)
 
     def test_should_redirect_to_existing_page(self):
-        respone = self.search_without_redirect("415")
-        self.assertEqual(respone.status_code, 302)
+        response = self.search_without_redirect("415")
+        self.assertEqual(response.status_code, 302)
 
     def test_should_find_existing_page(self):
-        respone = self.search("415")
-        self.assertEqual(respone.status_code, 200)
+        response = self.search("415")
+        self.assertEqual(response.status_code, 200)
 
-    def test_should_return_to_index_if_searched_page_cannot_be_found(self):
-        respone = self.search_without_redirect("499")
-        # self.assertEqual(respone.status_code, 302)
-        assert "Sorry, I don't know the statuscode 499" in response.data
+    def test_should_redirect_if_searched_page_cannot_be_found(self):
+        response = self.search_without_redirect("499")
+        self.assertEqual(response.status_code, 302)
 
+    def test_should_redirect_to_index_if_searched_page_cannot_be_found(self):
+        response = self.search("499")
+        self.assertEqual(response.status_code, 200)
+        
     def search_without_redirect(self, query):
         return self.app.post('/search', data=dict(query=query), follow_redirects=False)
 
