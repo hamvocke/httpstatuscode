@@ -1,3 +1,7 @@
+body {
+  background-color: #FAFAFA;
+}
+
 .hero {
   padding: 20% 0 10%;
   text-align: center;
@@ -25,6 +29,14 @@
   text-transform: uppercase;
 }
 
+button {
+  font-size: 15px;
+}
+
+input {
+  font-size: 18px;
+}
+
 .message {
   color: #FFF;
   background-color: #33C3F0;
@@ -33,7 +45,7 @@
   padding: 0 30px;
   height: 38px;
   text-align: center;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 600;
   line-height: 38px;
   letter-spacing: .1rem;
