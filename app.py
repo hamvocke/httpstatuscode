@@ -1,7 +1,9 @@
 from flask import Flask, abort, render_template, request, flash, redirect, url_for
 import model
 
-app = Flask(__name__)
+app = Flask(__name__, instance_relative_config=True)
+app.config.from_object('config')
+app.config.from_pyfile('config.py')
 
 @app.route('/')
 def index():
@@ -18,7 +20,7 @@ def statuscode(statuscode):
 def search():
     query = request.form['query']
     if not query:
-        flash('Please enter a search term') # TODO: need to set an API secret key for this to work. Consider setting one using env vars, deploy that with the application
+        flash('Please enter a search term')
         return redirect(url_for('index'))
     elif query not in model.statuscodes:
         flash("Sorry, I don't know the statuscode %s" % query)
@@ -32,5 +34,4 @@ def statuscode_not_found(error):
     return render_template('not_found.html'), 404
 
 if __name__ == '__main__':
-    app.debug = False
     app.run()
