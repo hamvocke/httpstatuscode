@@ -1,6 +1,7 @@
 body {
   background-color: #FAFAFA;
   color: #3E3E3E;
+  font-size: 2.0rem;
 }
 
 .hero {
@@ -15,6 +16,11 @@ body {
 
 .title {
   font-size: 3.5em;
+  margin-bottom: 50px;
+}
+
+.description {
+  text-align: left;
 }
 
 .search {
