@@ -3,14 +3,6 @@
 <div class="hero">
   <h1 class="code">{{status.code}}</h1>
   <h2 class="title">{{status.title}}</h2>
-  {% if status.tldr %}
-  <p class="tldr"><strong>tl;dr:</strong> {{status.tldr}}</p>
-  {% endif %}
 </div>
 
-
-
-{% if status.description %}
-<p class="description">{{status.description}}</p>
-{% endif %}
 {% endblock %}
